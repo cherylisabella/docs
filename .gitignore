@@ -1,0 +1,25 @@
+# Jekyll build files
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Bundler
+.bundle/
+vendor/
+
+# OS files
+.DS_Store
+Thumbs.db
+.Rhistory
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Ruby version managers
+.ruby-version
+.ruby-gemset
