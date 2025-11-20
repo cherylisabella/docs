@@ -2,7 +2,7 @@ title: "Documentation"
 description: "Documentation portal for my R packages"
 url: "https://cherylisabella.github.io"
 baseurl: "/docs"
-theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs@v0.8.2
 markdown: kramdown
 
 color_scheme: dark
