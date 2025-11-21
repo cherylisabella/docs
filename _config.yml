@@ -3,10 +3,11 @@ description: "Documentation portal for my R packages"
 url: "https://cherylisabella.github.io"
 baseurl: "/docs"
 
-theme: jekyll-theme-primer
+theme: jekyll-theme-minimal
 
 markdown: kramdown
 color_scheme: dark
+
 search_enabled: true
 
 aux_links:
@@ -24,3 +25,5 @@ exclude:
   - gemfiles/
   - Gemfile
   - Gemfile.lock
+  - .git
+  - .gitignore
