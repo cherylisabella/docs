@@ -37,15 +37,10 @@ body {
 }
 
 .home-icon {
-    display: flex;
-    align-items: center;
+    transition: transform 0.2s ease;
 }
 
-.home-icon svg {
-    transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.home-icon:hover svg {
+.home-icon:hover {
     transform: scale(1.1);
 }
 
@@ -117,23 +112,12 @@ h1 {
     margin: 4rem 0;
 }
 
-.packages-compact {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
 .package {
     background: #161b22;
     border: 1px solid #30363d;
     border-radius: 8px;
     padding: 2.5rem;
     transition: all 0.3s ease;
-}
-
-.packages-compact .package {
-    padding: 2rem;
 }
 
 .package:hover {
@@ -393,6 +377,12 @@ pre.code-block {
     margin: 2rem 0 1rem;
 }
 
+.doc-content h4 {
+    font-size: 1.2rem;
+    color: #f0f6fc;
+    margin: 1.5rem 0 0.75rem;
+}
+
 .doc-content p {
     margin-bottom: 1rem;
     color: #c9d1d9;
@@ -506,10 +496,6 @@ pre.code-block {
 
     .nav-links {
         gap: 1rem;
-    }
-
-    .packages-compact {
-        grid-template-columns: 1fr;
     }
 
     .package {
