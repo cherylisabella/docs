@@ -314,7 +314,7 @@ pre.code-block {
 /* Sidebar Navigation */
 .doc-layout {
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: 230px 1fr;
     gap: 3rem;
     margin: 3rem 0;
 }
@@ -323,6 +323,7 @@ pre.code-block {
     position: sticky;
     top: 80px;
     height: fit-content;
+    margin-left: -10px;
 }
 
 .sidebar-nav {
