@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vangogh Documentation</title>
+    <title>vangogh - Van Gogh-inspired Colour Palettes for R</title>
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="../../../index.html" class="nav-brand home-icon">
+            <a href="../../index.html" class="nav-brand home-icon">
                 <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
                 </svg>
@@ -25,14 +25,6 @@
     </nav>
 
     <div class="container">
-        <div class="breadcrumb">
-            <a href="../../../index.html">Home</a>
-            <span>/</span>
-            <a href="../../index.html">Documentation</a>
-            <span>/</span>
-            <span>vangogh</span>
-        </div>
-
         <div class="doc-layout">
             <aside class="sidebar">
                 <nav class="sidebar-nav">
@@ -49,12 +41,39 @@
             </aside>
 
             <main class="doc-content">
-                <h1>🎨 vangogh</h1>
-                <p class="doc-subtitle">Van Gogh-inspired colour palettes for R</p>
+                <header class="doc-page-header">
+                    <div class="header-title">
+                        <h1>🎨 vangogh</h1>
+                        <img src="man/figures/vangogh-hex.png" alt="vangogh logo" class="package-logo">
+                    </div>
+                    <p class="doc-subtitle">Van Gogh-inspired Colour Palettes for R</p>
+                </header>
+
+                <section class="badges">
+                    <a href="https://CRAN.R-project.org/package=vangogh" target="_blank">
+                        <img src="https://www.r-pkg.org/badges/version/vangogh" alt="CRAN version">
+                    </a>
+                    <a href="https://github.com/cherylisabella/vangogh/blob/main/LICENSE" target="_blank">
+                        <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
+                    </a>
+                    <a href="https://lifecycle.r-lib.org/articles/stages.html#stable" target="_blank">
+                        <img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable">
+                    </a>
+                    <a href="https://cran.r-project.org/package=vangogh" target="_blank">
+                        <img src="https://cranlogs.r-pkg.org/badges/grand-total/vangogh" alt="Total Downloads">
+                    </a>
+                    <a href="https://doi.org/10.5281/zenodo.17511534" target="_blank">
+                        <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17511534.svg" alt="DOI">
+                    </a>
+                </section>
+
+                <section>
+                    <p class="lead">An R package for painterly colour palettes inspired by Vincent van Gogh's artworks.</p>
+                </section>
 
                 <section>
                     <h2>Overview</h2>
-                    <p>An R package for painterly colour palettes inspired by Vincent van Gogh's artworks. The vangogh package provides ggplot2-compatible colour palettes derived from the artist's most iconic paintings, with tools for accessibility, visualisation, and data export.</p>
+                    <p>The vangogh package provides ggplot2-compatible colour palettes derived from the artist's most iconic paintings, with tools for accessibility, visualisation, and data export.</p>
                 </section>
 
                 <section>
@@ -70,11 +89,83 @@
                 </section>
 
                 <section>
-                    <h2>Quick Links</h2>
-                    <div class="buttons">
-                        <a href="installation.html" class="btn btn-primary">Get Started</a>
-                        <a href="https://github.com/cherylisabella/vangogh" class="btn" target="_blank">GitHub</a>
+                    <h2>Installation</h2>
+                    <p>Install the released version from CRAN:</p>
+                    <pre class="code-block">install.packages("vangogh")</pre>
+
+                    <p>Or install the development version from GitHub:</p>
+                    <pre class="code-block"># install.packages("devtools")
+devtools::install_github("cherylisabella/vangogh")</pre>
+                </section>
+
+                <section>
+                    <h2>Quick Start</h2>
+                    
+                    <h3>Basic Palette Usage</h3>
+                    <pre class="code-block">library(vangogh)
+
+# View available palettes
+names(vangogh_palettes)
+
+# Preview a palette
+viz_palette("StarryNight")
+
+# Get colours from a palette
+vangogh_palette("StarryNight")
+
+# Get palette as data frame
+vangogh_colors()
+
+# Use specific number of colours
+vangogh_palette("Irises", n = 3)
+
+# Generate continuous palette
+vangogh_palette("SelfPortrait", type = "continuous", n = 10)
+
+# Use with base R plotting
+plot(1:10, col = vangogh_palette("SelfPortrait"), pch = 19, cex = 2)</pre>
+
+                    <h3>ggplot2 Integration</h3>
+                    <pre class="code-block">library(ggplot2)
+
+# Use with ggplot2
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  geom_point(size = 4) +
+  scale_color_vangogh("StarryNight")</pre>
+                </section>
+
+                <section>
+                    <h2>Documentation</h2>
+                    <div class="doc-grid">
+                        <a href="functions.html" class="doc-card">
+                            <h3>Core Functions</h3>
+                            <p>Palette extraction and manipulation</p>
+                        </a>
+                        <a href="ggplot2.html" class="doc-card">
+                            <h3>ggplot2 Integration</h3>
+                            <p>Color scales and themes</p>
+                        </a>
+                        <a href="analysis.html" class="doc-card">
+                            <h3>Advanced Features</h3>
+                            <p>Accessibility and analysis tools</p>
+                        </a>
+                        <a href="gallery.html" class="doc-card">
+                            <h3>Visualisation Gallery</h3>
+                            <p>Examples and inspiration</p>
+                        </a>
+                        <a href="export.html" class="doc-card">
+                            <h3>Data Export</h3>
+                            <p>Export palettes to various formats</p>
+                        </a>
                     </div>
+                </section>
+
+                <section>
+                    <h2>Getting Help</h2>
+                    <ul class="features">
+                        <li><a href="https://github.com/cherylisabella/vangogh/issues" target="_blank">GitHub Issues</a></li>
+                        <li><a href="https://github.com/cherylisabella/vangogh" target="_blank">GitHub Repository</a></li>
+                    </ul>
                 </section>
             </main>
         </div>
