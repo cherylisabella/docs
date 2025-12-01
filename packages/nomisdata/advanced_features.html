@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Features - leakr</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="nav-brand home-icon">
+                <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a href="https://github.com/cherylisabella" target="_blank" class="github-icon">
+                    <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="doc-layout">
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <h3>leakr</h3>
+                    <ul>
+                        <li><a href="index.html">Overview</a></li>
+                        <li><a href="core_functions.html">Core Functions</a></li>
+                        <li><a href="advanced_features.html" class="active">Advanced Features</a></li>
+                        <li><a href="api_reference.html">API Reference</a></li>
+                        <li><a href="performance.html">Performance</a></li>
+                        <li><a href="visualisations.html">Visualisations</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="doc-content">
+                <h1>Advanced Features</h1>
+
+                <section>
+                    <h2>Persistent Caching</h2>
+                    <pre class="code-block">enable_cache("~/research/nomis_cache")
+
+# First query: 3 seconds
+data1 <- fetch_nomis("NM_1_1", time = "latest", geography = "TYPE464")
+
+# Cached query: 0.05 seconds (60× faster)
+data2 <- fetch_nomis("NM_1_1", time = "latest", geography = "TYPE464")
+
+clear_cache()</pre>
+                </section>
+
+                <section>
+                    <h2>Spatial Analysis</h2>
+                    <pre class="code-block">library(sf)
+
+spatial_data <- fetch_spatial(
+  "NM_1_1",
+  time = "latest",
+  geography = "TYPE480",
+  measures = 20201,
+  sex = 7)
+
+# Spatial operations
+st_crs(spatial_data)
+st_buffer(spatial_data, dist = 10000)
+
+# Choropleth
+ggplot(spatial_data) +
+  geom_sf(aes(fill = OBS_VALUE)) +
+  scale_fill_viridis_c() +
+  theme_void()</pre>
+                </section>
+
+                <section>
+                    <h2>Data Aggregation</h2>
+                    <pre class="code-block"># Geographic aggregation
+local_data <- fetch_nomis("NM_1_1", geography = "TYPE464", measures = 20100)
+regional <- aggregate_geography(local_data, to_type = "TYPE480", fun = sum)
+
+# Temporal aggregation
+monthly <- fetch_nomis("NM_1_1", date = paste0("2024-", sprintf("%02d", 1:12)))
+quarterly <- aggregate_time(monthly, period = "quarter", fun = mean)</pre>
+                </section>
+
+                <section>
+                    <h2>Nomis Geography Hierarchy</h2>
+                    <table class="function-table">
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Level</th>
+                                <th>N</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>TYPE499</td><td>Country</td><td>7</td><td>England, Scotland, Wales, NI</td></tr>
+                            <tr><td>TYPE480</td><td>Region</td><td>12</td><td>London, South East, North West</td></tr>
+                            <tr><td>TYPE464</td><td>Local Authority</td><td>374</td><td>Manchester, Birmingham, Leeds</td></tr>
+                            <tr><td>TYPE460</td><td>Constituency</td><td>650</td><td>Cities of London and Westminster</td></tr>
+                            <tr><td>TYPE297</td><td>Ward</td><td>~9,000</td><td>Bloomsbury Ward</td></tr>
+                            <tr><td>TYPE298</td><td>LSOA</td><td>~35,000</td><td>Lower Super Output Areas (~1,500 pop)</td></tr>
+                            <tr><td>TYPE299</td><td>MSOA</td><td>~7,000</td><td>Middle Super Output Areas (~7,500 pop)</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h3>Geography Lookup</h3>
+                    <pre class="code-block">lookup_geography("Manchester")
+lookup_geography("London", type = "TYPE464")  # Boroughs only
+all_las <- get_codes("NM_1_1", "geography", type = "TYPE464")</pre>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
