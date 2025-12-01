@@ -13,28 +13,35 @@
         }
 
         .doc-content {
-            text-align: left; 
-        }
-
-        .doc-header {
-            text-align: left; 
+            text-align: left;
         }
 
         table.function-table {
-            width: 80%;
-            margin: 0 auto; 
+            width: 100%; 
+            max-width: 100%; 
+            margin: 20px 0;
             border-collapse: collapse;
+            table-layout: auto; 
         }
 
-        table.function-table th, table.function-table td {
+        table.function-table th,
+        table.function-table td {
+            padding: 12px 15px; 
             text-align: left;  
-            padding: 8px;
-            border: 1px solid #ddd;
+            border: 1px solid #ddd; 
         }
 
         table.function-table th {
-            background-color: #f8f8f8;
-            font-weight: bold;
+            background-color: #f8f8f8; 
+            font-weight: bold; 
+        }
+
+        table.function-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table.function-table tr:hover {
+            background-color: #f1f1f1; 
         }
 
         .code-block {
@@ -43,11 +50,7 @@
             border-radius: 5px;
             font-family: monospace;
             overflow-x: auto;
-        }
-
-        pre.code-block {
-            white-space: pre-wrap;
-            word-wrap: break-word;
+            white-space: pre-wrap; 
         }
     </style>
 </head>
