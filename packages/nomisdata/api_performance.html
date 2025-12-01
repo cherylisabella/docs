@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nomisdata - API & Performance</title>
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #f4f4f4;
+        }
+        table td {
+            background-color: #fafafa;
+        }
+        table tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+        .code-block {
+            background-color: #f7f7f7;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+        .doc-header {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -30,7 +62,7 @@
                 <nav class="sidebar-nav">
                     <h3>nomisdata</h3>
                     <ul>
-                        <li><a href="index.html" class="active">Overview</a></li>
+                        <li><a href="index.html">Overview</a></li>
                         <li><a href="core_functions.html">Core Functions</a></li>
                         <li><a href="advanced_features.html">Advanced Features</a></li>
                         <li><a href="api_performance.html" class="active">API & Performance</a></li>
@@ -46,7 +78,7 @@
                     </div>
                 </header>
 
-                <section>
+                <section class="doc-header">
                     <h2>API Reference</h2>
                     <h3>Primary Functions</h3>
                     <table>
@@ -103,7 +135,7 @@
                     <p>Full documentation: <code>?fetch_nomis</code> or <a href="https://cherylisabella.github.io/nomisdata" target="_blank">nomisdata documentation</a></p>
                 </section>
 
-                <section>
+                <section class="doc-header">
                     <h2>Performance Characteristics</h2>
                     <table>
                         <thead>
