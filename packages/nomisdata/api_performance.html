@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nomisdata - API & Performance</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="nav-brand home-icon">
+                <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a href="https://github.com/cherylisabella" target="_blank" class="github-icon">
+                    <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="doc-layout">
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <h3>nomisdata</h3>
+                    <ul>
+                        <li><a href="index.html" class="active">Overview</a></li>
+                        <li><a href="core_functions.html">Core Functions</a></li>
+                        <li><a href="advanced_features.html">Advanced Features</a></li>
+                        <li><a href="api_performance.html" class="active">API & Performance</a></li>
+                        <li><a href="visualisations.html">Visualisations</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="doc-content">
+                <header class="doc-page-header">
+                    <div class="header-title">
+                        <h1>API & Performance</h1> 
+                    </div>
+                </header>
+
+                <section>
+                    <h2>API Reference</h2>
+                    <h3>Primary Functions</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Function</th>
+                                <th>Purpose</th>
+                                <th>Key Parameters</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>fetch_nomis()</code></td>
+                                <td>Download data</td>
+                                <td>id, time/date, geography, measures, sex</td>
+                            </tr>
+                            <tr>
+                                <td><code>search_datasets()</code></td>
+                                <td>Search catalogue</td>
+                                <td>name, keywords, description</td>
+                            </tr>
+                            <tr>
+                                <td><code>describe_dataset()</code></td>
+                                <td>Get structure</td>
+                                <td>id</td>
+                            </tr>
+                            <tr>
+                                <td><code>get_codes()</code></td>
+                                <td>Dimension codes</td>
+                                <td>id, concept, type</td>
+                            </tr>
+                            <tr>
+                                <td><code>lookup_geography()</code></td>
+                                <td>Find geographies</td>
+                                <td>search_term, type</td>
+                            </tr>
+                            <tr>
+                                <td><code>fetch_spatial()</code></td>
+                                <td>Get KML boundaries</td>
+                                <td>id, time/date, geography</td>
+                            </tr>
+                            <tr>
+                                <td><code>enable_cache()</code></td>
+                                <td>Persistent cache</td>
+                                <td>path</td>
+                            </tr>
+                            <tr>
+                                <td><code>set_api_key()</code></td>
+                                <td>Configure auth</td>
+                                <td>key, persist</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Full documentation: <code>?fetch_nomis</code> or <a href="https://cherylisabella.github.io/nomisdata" target="_blank">nomisdata documentation</a></p>
+                </section>
+
+                <section>
+                    <h2>Performance Characteristics</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Guest</th>
+                                <th>Registered</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Rows/query</td>
+                                <td>25,000</td>
+                                <td>100,000</td>
+                                <td>Hard API limits</td>
+                            </tr>
+                            <tr>
+                                <td>Typical latency</td>
+                                <td>1-3s</td>
+                                <td>1-3s</td>
+                                <td>Small queries</td>
+                            </tr>
+                            <tr>
+                                <td>Large queries</td>
+                                <td>10-30s</td>
+                                <td>10-30s</td>
+                                <td>Auto-chunked</td>
+                            </tr>
+                            <tr>
+                                <td>Cache speedup</td>
+                                <td>10-50×</td>
+                                <td>10-50×</td>
+                                <td>Repeated queries</td>
+                            </tr>
+                            <tr>
+                                <td>Retry attempts</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>Exponential backoff</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p><strong>Registration</strong>: Free at <a href="https://www.nomisweb.co.uk/myaccount/userjoin.asp" target="_blank">Nomis Registration</a></p>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
