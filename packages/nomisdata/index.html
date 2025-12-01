@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nomisdata - R Interface to UK Labour Market Statistics</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="nav-brand home-icon">
+                <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                </svg>
+            </a>
+            <div class="nav-links">
+                <a href="https://github.com/cherylisabella" target="_blank" class="github-icon">
+                    <svg height="24" width="24" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="doc-layout">
+            <aside class="sidebar">
+                <nav class="sidebar-nav">
+                    <h3>nomisdata</h3>
+                    <ul>
+                        <li><a href="index.html" class="active">Overview</a></li>
+                        <li><a href="installation.html">Installation</a></li>
+                        <li><a href="quick_start.html">Quick Start</a></li>
+                        <li><a href="core_functionality.html">Core Functionality</a></li>
+                        <li><a href="advanced_features.html">Advanced Features</a></li>
+                        <li><a href="api_reference.html">API Reference</a></li>
+                        <li><a href="performance.html">Performance</a></li>
+                        <li><a href="visualisations.html">Visualisations</a></li>
+                        <li><a href="citation.html">Citation</a></li>
+                        <li><a href="contributing.html">Contributing</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="doc-content">
+                <header class="doc-page-header">
+                    <div class="header-title">
+                        <h1>nomisdata</h1> 
+                        <p class="lead" style="margin-top: 25px;">R interface to UK official labour market statistics via the Nomis API</p>
+                        <img src="man/figures/nomisdata-hex.png" alt="nomisdata logo" width="170" height="auto">
+                    </div>
+                </header>
+
+                <section class="badges">
+                    <a href="https://CRAN.R-project.org/package=nomisdata" target="_blank">
+                        <img src="https://www.r-pkg.org/badges/version/nomisdata" alt="CRAN version">
+                    </a>
+                    <a href="https://opensource.org/licenses/MIT" target="_blank">
+                        <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
+                    </a>
+                    <a href="https://lifecycle.r-lib.org/articles/stages.html#stable" target="_blank">
+                        <img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable">
+                    </a>
+                    <a href="https://cran.r-project.org/package=nomisdata" target="_blank">
+                        <img src="https://cranlogs.r-pkg.org/badges/grand-total/nomisdata" alt="Total Downloads">
+                    </a>
+                    <a href="https://doi.org/10.5281/zenodo.17755835" target="_blank">
+                        <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.17755835.svg" alt="DOI">
+                    </a>
+                </section>
+
+                <section>
+                    <h2>Overview</h2>
+                    <p><code>nomisdata</code> provides programmatic access to the <a href="https://www.nomisweb.co.uk/" target="_blank">Nomis</a> database, the official repository of UK labour market statistics maintained by the Office for National Statistics (ONS). The package features a modern, type-safe HTTP client with caching, automatic pagination, and integration with R's spatial and tidyverse ecosystems.</p>
+
+                    <h3>Research Applications</h3>
+                    <ul class="features">
+                        <li><strong>Labour Economics</strong>: Unemployment dynamics, wage distributions, job transitions, skills analysis</li>
+                        <li><strong>Regional Science</strong>: Spatial inequality, agglomeration economies, local labour market analysis</li>
+                        <li><strong>Urban Economics</strong>: City growth patterns, neighborhood effects, amenity valuation</li>
+                        <li><strong>Demography</strong>: Population aging, migration flows, household composition evolution</li>
+                        <li><strong>Public Policy</strong>: Programme evaluation, impact assessment, distributional analysis</li>
+                        <li><strong>Social Epidemiology</strong>: Health-employment linkages, deprivation indices, social determinants</li>
+                    </ul>
+
+                    <h3>Key Features</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Implementation</th>
+                                <th>Benefit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Modern HTTP Client</strong></td>
+                                <td><code>httr2</code> with exponential backoff</td>
+                                <td>Robust error handling, automatic retries</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Intelligent Caching</strong></td>
+                                <td>Memoise + disk persistence</td>
+                                <td>10-50× speedup for repeated queries</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Auto-Pagination</strong></td>
+                                <td>Transparent chunking</td>
+                                <td>Handles datasets exceeding API limits</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Spatial Integration</strong></td>
+                                <td>Native <code>sf</code> support</td>
+                                <td>Seamless GIS workflow integration</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Type Safety</strong></td>
+                                <td>Comprehensive validation</td>
+                                <td>Informative errors, early failure detection</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Zero-Config</strong></td>
+                                <td>Sensible defaults</td>
+                                <td>Works immediately, customizable as needed</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Production Testing</strong></td>
+                                <td>135+ tests with <code>vcr</code></td>
+                                <td>Offline reproducibility, CI/CD ready</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section>
+                    <h2>Installation</h2>
+                    <pre class="code-block"># Stable release from CRAN
+install.packages("nomisdata")
+
+# Development version
+pak::pak("cherylisabella/nomisdata")
+
+# With all dependencies
+install.packages("nomisdata", dependencies = TRUE)</pre>
+                </section>
+
+                <section>
+                    <h2>Quick Start</h2>
+                    <pre class="code-block">library(nomisdata)
+library(ggplot2)
+library(dplyr)
+
+# Optional: set API key
+set_api_key("your-api-key", persist = TRUE)
+
+# Search the catalogue
+datasets <- search_datasets(name = "*employment*", keywords = "labour force")
+
+# Fetch unemployment data
+unemployment <- fetch_nomis(
+  id = "NM_1_1",
+  time = "latest",
+  geography = "TYPE480",
+  measures = 20100,
+  sex = 7
+)
+
+# Quick visualisation
+unemployment %>%
+  ggplot(aes(x = reorder(GEOGRAPHY_NAME, OBS_VALUE), y = OBS_VALUE)) +
+  geom_col(fill = "#1f77b4", alpha = 0.8) +
+  coord_flip() +
+  labs(title = "JSA Claimants by UK Region", x = NULL, y = "Claimants") +
+  theme_minimal()</pre>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
