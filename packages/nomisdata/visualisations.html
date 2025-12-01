@@ -3,84 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualisations - leakr</title>
-    <style>
-        * {
-            text-align: left !important;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        .navbar {
-            background: #2c3e50;
-            color: white;
-            padding: 1rem 0;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        .nav-brand {
-            color: white;
-            text-decoration: none;
-        }
-        .nav-links {
-            float: right;
-        }
-        .github-icon {
-            color: white;
-        }
-        .doc-layout {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .sidebar {
-            width: 200px;
-            flex-shrink: 0;
-        }
-        .sidebar-nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        .sidebar-nav li {
-            margin: 0.5rem 0;
-        }
-        .sidebar-nav a {
-            color: #2c3e50;
-            text-decoration: none;
-        }
-        .sidebar-nav a.active {
-            font-weight: bold;
-            color: #3498db;
-        }
-        .doc-content {
-            flex: 1;
-        }
-        h1, h2, h3, p, li {
-            text-align: left !important;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        code {
-            background: #f4f4f4;
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-        }
-        hr {
-            border: none;
-            border-top: 1px solid #ddd;
-            margin: 2rem 0;
-        }
-    </style>
+    <title>Visualisation - nomisdata</title>
+    <link rel="stylesheet" href="../../css/style.css">
 </head>
 <body>
     <nav class="navbar">
@@ -119,14 +43,18 @@
                 <h1>Visualisations</h1>
                 <p>All visualisations generated using real Nomis data accessed November 2025. Complete reproduction code available in <code>inst/plots.R</code>.</p>
 
-                <section class="doc-header">
+                <section>
                     <h2>1. National Overview</h2>
-                    <img src="man/01_countries_current.png" width="100%" alt="UK unemployment by country"/>
+                    <p align="center">
+                        <img src="man/01_countries_current.png" width="100%" alt="UK unemployment by country"/>
+                    </p>
                     <p><strong>Current Jobseeker's Allowance claimants across UK constituent nations</strong>. England dominates in absolute terms. Data represents latest available period (October 2025).</p>
                     <hr>
 
                     <h2>2. Inequality Analysis: Lorenz Curve</h2>
-                    <img src="man/02_lorenz.png" width="100%" alt="Lorenz curve unemployment concentration"/>
+                    <p align="center">
+                        <img src="man/02_lorenz.png" width="100%" alt="Lorenz curve unemployment concentration"/>
+                    </p>
                     <p><strong>Geographic concentration of unemployment across 317 UK local authorities</strong>. The Lorenz curve demonstrates significant spatial inequality. Departure from the 45° diagonal (perfect equality) shows unemployment is not evenly distributed.</p>
                     <p><strong>Graph Features:</strong></p>
                     <ul>
@@ -140,7 +68,9 @@
                     <hr>
 
                     <h2>3. Distribution by Urban Hierarchy</h2>
-                    <img src="man/03_area_type_distribution.png" width="100%" alt="Violin plot by area type"/>
+                    <p align="center">
+                        <img src="man/03_area_type_distribution.png" width="100%" alt="Violin plot by area type"/>
+                    </p>
                     <p><strong>Unemployment distribution across geographic classifications using combined violin plot (density), box plot (quartiles), and jittered points (individual authorities)</strong>.</p>
                     <p><strong>Graph Features:</strong></p>
                     <ul>
@@ -160,13 +90,17 @@
                     <hr>
 
                     <h2>4. High JSA Claimant Areas</h2>
-                    <img src="man/04_top20_worst_areas.png" width="100%" alt="Top 20 highest JSA Claimant Areas"/>
+                    <p align="center">
+                        <img src="man/04_top20_worst_areas.png" width="100%" alt="Top 20 highest JSA Claimant Areas"/>
+                    </p>
                     <p><strong>Local authorities with highest absolute unemployment</strong>. Birmingham has the highest claimant count, followed by other large urban centres including Leeds, Sheffield, and Edinburgh. Collectively, the top 20 authorities represent over one-third of all JSA claimants while making up less than 6% of UK local authorities.</p>
                     <p><strong>Policy Implication</strong>: The geography of unemployment is highly concentrated. Well-targeted support to these 20 areas alone could reach a substantial share of jobseekers, highlighting the efficiency potential of spatially focused interventions.</p>
                     <hr>
 
                     <h2>5. Gender Disparities</h2>
-                    <img src="man/05_gender_gap.png" width="100%" alt="Gender gap analysis"/>
+                    <p align="center">
+                        <img src="man/05_gender_gap.png" width="100%" alt="Gender gap analysis"/>
+                    </p>
                     <p><strong>Male unemployment consistently exceeds female across all UK nations</strong>. Gender gaps range from 145 claimants (Northern Ireland) to 6,200 (England) in absolute terms, representing 18-38% higher male unemployment.</p>
                     <p><strong>Key Findings:</strong></p>
                     <ul>
@@ -179,14 +113,18 @@
                     <hr>
 
                     <h2>6. Within-City Inequality: London</h2>
-                    <img src="man/06_london_boroughs.png" width="100%" alt="London Borough JSA Claimants"/>
-                    <p><strong>Dramatic variation within London's 33 boroughs demonstrates intra-metropolitan inequality</strong>. The borough with the highest Jobseeker's Allowance (JSA) claimant count (Ealing) has substantially more claimants than other boroughs, underscoring that shared metropolitan geography does not equate to shared economic outcomes.</p>
+                    <p align="center">
+                        <img src="man/06_london_boroughs.png" width="100%" alt="London Borough JSA Claimants"/>
+                    </p>
+                    <p><strong>Dramatic variation within London's 33 boroughs demonstrates intra-metropolitan inequality</strong>. The borough with the highest Jobseeker’s Allowance (JSA) claimant count (Ealing) has substantially more claimants than other boroughs, underscoring that shared metropolitan geography does not equate to shared economic outcomes.</p>
                     <p><strong>How to Read</strong>: Colour intensity reflects JSA claimant volume (yellow = low, red = high). Geographic proximity doesn't imply economic similarity as adjacent boroughs can differ substantially.</p>
                     <p><strong>Key Finding</strong>: Greater within-city inequality than between-city inequality for some pairs. Demonstrates that place-based policies must operate at sub-metropolitan scales to address genuine disparities.</p>
                     <hr>
 
                     <h2>7. Temporal Dynamics</h2>
-                    <img src="man/07_yoy_change_countries.png" width="100%" alt="Year-on-year change"/>
+                    <p align="center">
+                        <img src="man/07_yoy_change_countries.png" width="100%" alt="Year-on-year change"/>
+                    </p>
                     <p><strong>Year-on-year change reveals divergent trajectories across UK nations</strong> (September 2025 vs September 2024). Green indicates improvement (fewer claimants); red indicates deterioration (more claimants).</p>
                     <p><strong>Key Findings:</strong></p>
                     <ul>
@@ -199,7 +137,9 @@
                     <hr>
 
                     <h2>8. Local Authority Performance</h2>
-                    <img src="man/08_best_worst_performers.png" width="100%" alt="Best and worst performers"/>
+                    <p align="center">
+                        <img src="man/08_best_worst_performers.png" width="100%" alt="Best and worst performers"/>
+                    </p>
                     <p><strong>Top improving and declining local authorities over 12-month period</strong>. Identifies policy success stories (left, green) and areas requiring intervention (right, red).</p>
                     <p><strong>How to Read</strong>: Distance from zero line indicates magnitude of change. Longer bars = greater changes.</p>
                     <p><strong>Key Findings:</strong></p>
@@ -211,7 +151,9 @@
                     <hr>
 
                     <h2>9. Multi-Dimensional Dashboard</h2>
-                    <img src="man/09_nations_dashboard.png" width="100%" alt="Comprehensive dashboard"/>
+                    <p align="center">
+                        <img src="man/09_nations_dashboard.png" width="100%" alt="Comprehensive dashboard"/>
+                    </p>
                     <p><strong>Integrated four-panel dashboard combining current levels, gender splits, temporal trends, and geographic concentration</strong>. Enables rapid cross-dimensional pattern identification.</p>
                     <p><strong>Panel A</strong> (Top-Left): Current absolute levels by nation</p>
                     <p><strong>Panel B</strong> (Top-Right): Gender breakdown showing male dominance</p>
@@ -221,17 +163,20 @@
                     <hr>
 
                     <h2>10. Scale-Growth Dynamics</h2>
-                    <img src="man/10_scale_vs_change_scatter.png" width="100%" alt="Scale vs growth rate"/>
+                    <p align="center">
+                        <img src="man/10_scale_vs_change_scatter.png" width="100%" alt="Scale vs growth rate"/>
+                    </p>
                     <p><strong>Relationship between current unemployment level and year-on-year change rate across 405 local authorities</strong>. Examines whether absolute scale predicts growth trajectories.</p>
-                    <p><strong>How to Read</strong>:</p>
-                    <ul>
-                        <li><strong>X-axis</strong>: Current JSA claimants (log scale, thousands)—shows range from 100 to 50,000</li>
-                        <li><strong>Y-axis</strong>: Year-on-year percentage change (+ means worsening, - means improving)</li>
-                        <li><strong>Horizontal line at 0</strong>: Divides improving (below) from worsening (above) areas</li>
-                        <li><strong>Colours</strong>: Area size categories (see legend)</li>
-                        <li><strong>Red curve</strong>: LOESS smooth showing non-linear pattern</li>
-                        <li><strong>Shaded area</strong>: 95% confidence band around LOESS curve</li>
-                    </ul>
+                    <p><strong>How to Read</strong>:
+                        <ul>
+                            <li><strong>X-axis</strong>: Current JSA claimants (log scale, thousands)—shows range from 100 to 50,000</li>
+                            <li><strong>Y-axis</strong>: Year-on-year percentage change (+ means worsening, - means improving)</li>
+                            <li><strong>Horizontal line at 0</strong>: Divides improving (below) from worsening (above) areas</li>
+                            <li><strong>Colours</strong>: Area size categories (see legend)</li>
+                            <li><strong>Red curve</strong>: LOESS smooth showing non-linear pattern</li>
+                            <li><strong>Shaded area</strong>: 95% confidence band around LOESS curve</li>
+                        </ul>
+                    </p>
                     <p><strong>Key Findings:</strong></p>
                     <ul>
                         <li><strong>No simple linear relationship</strong>: Curve shows complex dynamics</li>
@@ -239,12 +184,7 @@
                         <li><strong>Medium areas (1-5k)</strong>: More stable, cluster near zero</li>
                         <li><strong>Large areas (>10k)</strong>: Variable again but for different reasons (complex urban economies with multiple shocks)</li>
                     </ul>
-                    <p><strong>Interpretation</strong>:</p>
-                    <ul>
-                        <li><strong>Size matters, but non-monotonically</strong>: Not true that "big cities always grow" or "small towns always decline"</li>
-                        <li><strong>Context-dependent dynamics</strong>: Small-area volatility reflects different mechanisms (idiosyncratic shocks) than large-area variation (structural economic forces)</li>
-                        <li><strong>Policy implication</strong>: One-size-fits-all interventions won't work. Small areas need economic diversification. Large cities need sector-specific policies. Medium towns are most stable base for steady growth.</li>
-                    </ul>
+                    <p><strong>Interpretation</strong>: One-size-fits-all interventions won't work. Small areas need economic diversification. Large cities need sector-specific policies. Medium towns are most stable base for steady growth.</p>
                     <p><strong>Statistical Note</strong>: LOESS (Locally Estimated Scatterplot Smoothing) curve reveals local patterns better than linear regression—shows relationship changes across unemployment spectrum.</p>
                 </section>
             </main>
