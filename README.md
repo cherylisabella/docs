@@ -12,7 +12,7 @@ Online documentation for my R packages.
 
 *Published to CRAN:* 26-10-2025
 
-**Universal Data Leakage Detector for R:** A comprehensive R package for detecting and diagnosing data leakage in machine learning workflows.
+**Universal Data Leakage Detector for Machine Learning:** Detects and diagnoses data leakage in machine learning workflows.
 
 ---
 ## [`nomisdata`](packages/nomisdata/)
@@ -25,7 +25,7 @@ Online documentation for my R packages.
 
 *Published to CRAN:* 26-10-2025
 
-**Universal Data Leakage Detector for R:** A comprehensive R package for detecting and diagnosing data leakage in machine learning workflows.
+**R interface to UK official labour market statistics via the Nomis API:** Provides programmatic access to Nomis datasets with caching, auto-pagination, and tidyverse & spatial integration.
 
 ---
 
@@ -39,6 +39,6 @@ Online documentation for my R packages.
 
 *Published to CRAN:* 27-05-2022
 
-**Painterly Colour Palettes Inspired by Vincent van Gogh:** An R package providing ggplot2-compatible colour palettes derived from Van Gogh's most iconic paintings.
+**Painterly Colour Palettes Inspired by Vincent van Gogh:** Provides ggplot2-compatible colour palettes derived from Van Gogh's most iconic paintings.
 
 ---
